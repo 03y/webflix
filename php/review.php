@@ -1,25 +1,8 @@
 <?php
-    # Access session.
     session_start();
+    require(dirname(__FILE__) . "/common/head.php");
+    require(dirname(__FILE__) . "/common/connect_db.php");
 
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-
-    include(dirname(__FILE__) . "/../includes/logout.html");
-    echo '<link rel="stylesheet" href="http://webdev.edinburghcollege.ac.uk/~HNDSOFTSA22/php5/css/style.css">';
-    echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">';
-
-    # Redirect if not logged in.
-    if (!isset($_SESSION['user_id'])) {
-        require('login_tools.php');
-        load();
-    }
-
-    # Open database connection.
-    require('connect_db.php');
-
-    # Display body section, retrieving from 'mov_rev' database table.
     $q = "SELECT * FROM mov_rev ORDER BY post_date DESC";
     $r = mysqli_query($link, $q);
     if (mysqli_num_rows($r) > 0) {
@@ -47,11 +30,11 @@
                     <p>There are currently no movie reviews.</p>
                     <a href="post.php><button type="button" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#rev">Add Movie Review</button></a>
                 </div>
-            <div>'
-        ;
+            <div>
+        ';
     }
 ?>
-<!-- Modal review-->
+
 <div class="modal fade " id="rev" tabindex="-1" role="dialog" aria-labelledby="rev" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -62,8 +45,8 @@
                 </button>
             </div>
         <div class="modal-body">
-<?php # DISPLAY POST MESSAGE FORM.
-    # Display form.
+
+<?php
     echo '
         <form action="post_action.php" method="post" accept-charset="utf-8">
             <div class="form-check">
@@ -106,7 +89,5 @@
             </div>
         </form></div>
     ';
-    # Close database connection.
     mysqli_close($link);
-    # Display footer section.
     include(dirname(__FILE__) . "/../includes/footer.html");

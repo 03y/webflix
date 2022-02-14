@@ -1,13 +1,8 @@
 <?php
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-    
-    include(dirname(__FILE__) . "/../includes/login.html");
-    echo '<link rel="stylesheet" href="http://webdev.edinburghcollege.ac.uk/~HNDSOFTSA22/php5/css/style.css">';
+    require(dirname(__FILE__) . "/common/head.php");
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        require("connect_db.php");
+        require(dirname(__FILE__) . "/common/connect_db.php");
         $errors = array();
 
         if (empty($_POST["first_name"])) {
@@ -95,8 +90,5 @@
             mysqli_close($link);
         }
     }
-?>
-
-<?php
     include(dirname(__FILE__) . "/../includes/footer.html");
 ?>

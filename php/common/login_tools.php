@@ -1,10 +1,4 @@
 <?php
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-
-    echo '<link rel="stylesheet" href="http://webdev.edinburghcollege.ac.uk/~HNDSOFTSA22/php5/css/style.css">';
-
     # Function to load specified or default URL.
     function load($page = 'login.php') {
         # Begin URL with protocol, domain, and current directory.

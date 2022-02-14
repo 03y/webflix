@@ -1,12 +1,5 @@
 <?php
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-
-    # DISPLAY COMPLETE LOGIN PAGE.
-    # Display any error messages if present.
-    include(dirname(__FILE__) . "/../includes/login.html");
-    echo '<link rel="stylesheet" href="http://webdev.edinburghcollege.ac.uk/~HNDSOFTSA22/php5/css/style.css">';
+    require(dirname(__FILE__) . "/common/head.php");
 
     if (isset($errors) && !empty($errors)) {
         echo '<p id="err_msg">Oops! There was a problem:<br>';
@@ -24,6 +17,6 @@
     <p>Email Address: <input type="text" name="email"> </p>
     <p>Password: <input type="password" name="pass"></p>
 
-    <p>Don't have an account? <a href="http://webdev.edinburghcollege.ac.uk/~HNDSOFTSA22/php5/index.php">Register</a></p>
+    <p>Don't have an account? <a href="./index.php">Register</a></p>
     <p><input type="submit" value="Login" ></p>
 </form>

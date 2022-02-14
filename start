@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "Starting server."
+sudo /opt/lampp/xampp start
+
+echo "Opening webpage."
+xdg-open http://localhost
