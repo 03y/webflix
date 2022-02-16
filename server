@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [ $1 ]; then
+    if [ $1 == "start" ]; then
+        echo "Starting server."
+        sudo /opt/lampp/xampp start
+
+        echo "Opening webpage."
+        xdg-open http://localhost
+    elif [ $1 == "stop" ]; then
+        echo "Stopping server."
+        sudo /opt/lampp/xampp stop
+    else
+        echo "Unknown command."
+    fi
+else
+    echo "Enter argument."
+fi

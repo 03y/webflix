@@ -5,7 +5,7 @@
     
     if (isset($_GET['id'])) $id = $_GET['id'];
     
-    if (!isset($_SESSION['user_id'])) {
+    if (!isset($_SESSION['user_id'])) { // if NOT logged in
         $q = "SELECT * FROM movie WHERE id = $id";
         $r = mysqli_query($link, $q);
         if (mysqli_num_rows($r) == 1) {
@@ -40,17 +40,9 @@
                     <h1 class="display-4">' . $row['movie_title'] . '</h1>
                     <div class="row">
                         <div class="col-sm-12 col-md-4">
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src='. $row['preview'].'   
-                                    frameborder="0" allow="accelerometer; 
-                                    autoplay; 
-                                    encrypted-media; 
-                                    gyroscope; 
-                                    picture-in-picture"   allowfullscreen>
-                                </iframe>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-4">
+                            <img border="0" alt="' . $row['movie_title'] . '" src=\'/../assets/' . $row['img'] . '\'">
+                            <br>
+                            <br>
                             <p>' . $row['further_info'] . '</p>
                         </div>
                         <div class="col-sm-12 col-md-4">
@@ -67,3 +59,15 @@
             ';
         }
     }
+
+//     <div class="col-sm-12 col-md-4">
+//     <div class="embed-responsive embed-responsive-16by9">
+//         <iframe class="embed-responsive-item" src='. $row['preview'].'   
+//             frameborder="0" allow="accelerometer; 
+//             autoplay; 
+//             encrypted-media; 
+//             gyroscope; 
+//             picture-in-picture"   allowfullscreen>
+//         </iframe>
+//     </div>
+// </div>

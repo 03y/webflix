@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    // session_start();
     require(dirname(__FILE__) . "/common/head.php");
     require(dirname(__FILE__) . "/common/redirect.php");
     require(dirname(__FILE__) . "/common/connect_db.php");

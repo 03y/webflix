@@ -11,7 +11,7 @@
         while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
             echo '
                 <a href="./movie.php?id=' . $row['id'] . '">
-                <img border="0" alt="Book Now" src=\'/../assets/' . $row['img'] . '\'">
+                <img border="0" alt="' . $row['movie_title'] . '" src=\'/../assets/' . $row['img'] . '\'">
                 </a>
                 <h2>' . $row['movie_title'] . '</h2>
                 <a href="./movie.php?id=' . $row['id'] . '">Stream Now</a>

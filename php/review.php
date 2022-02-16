@@ -21,7 +21,9 @@
                 </div>
             ';
         }
-        echo '<a href="post.php><button type="button" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#rev">Add Movie Review</button></a>';
+        echo '
+            <a href="post.php><button type="button" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#rev">Add Movie Review</button></a>
+        ';
     }
     else {
         echo '
@@ -48,46 +50,47 @@
 
 <?php
     echo '
-        <form action="post_action.php" method="post" accept-charset="utf-8">
-            <div class="form-check">
-                <label for="movie_title">Movie Title: </label>
-                <input type="text" class="form-control" name="movie_title" required>
-                <label for="rate">Rate Movie: </label>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="rate" value="5">&#9734; &#9734; &#9734; &#9734; &#9734;
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="rate" value="4">&#9734; &#9734; &#9734; &#9734;
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="rate" value="3">&#9734; &#9734; &#9734;
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="rate" value="2">&#9734; &#9734;
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="rate" value="1">&#9734;
-                        </label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="comment">Comment:</label>
-                        <textarea class="form-control" rows="5" id="message" name="message" required></textarea>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <input class="btn btn-dark" type="submit" value="Post Review">
-                    </div>
-            </div>
-        </form></div>
+            <form action="post_action.php" method="post" accept-charset="utf-8">
+                <div class="form-check">
+                    <label for="movie_title">Movie Title: </label>
+                    <input type="text" class="form-control" name="movie_title" required>
+                    <label for="rate">Rate Movie: </label>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="rate" value="5">&#9734; &#9734; &#9734; &#9734; &#9734;
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="rate" value="4">&#9734; &#9734; &#9734; &#9734;
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="rate" value="3">&#9734; &#9734; &#9734;
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="rate" value="2">&#9734; &#9734;
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="rate" value="1">&#9734;
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="comment">Comment:</label>
+                            <textarea class="form-control" rows="5" id="message" name="message" required></textarea>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <input class="btn btn-dark" type="submit" value="Post Review">
+                        </div>
+                </div>
+            </form>
+        </div>
     ';
     mysqli_close($link);
     include(dirname(__FILE__) . "/../includes/footer.html");
