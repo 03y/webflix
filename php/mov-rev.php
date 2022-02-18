@@ -3,6 +3,9 @@
     require(dirname(__FILE__) . "/common/head.php");
     require(dirname(__FILE__) . "/common/connect_db.php");
 
+    $page_title = 'Review';
+    echo '<title> Webflix ∙ ' . $page_title . '</title>';
+
     if (isset($_GET['movie_title'])) $movie_title = $_GET['movie_title'];
     
     $q = "SELECT * FROM mov_rev WHERE movie_title LIKE '%{$_GET["movie_title"]}%'";

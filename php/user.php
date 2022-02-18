@@ -10,7 +10,8 @@
     require(dirname(__FILE__) . "/common/redirect.php");
     require(dirname(__FILE__) . "/common/connect_db.php");
 
-    $page_title = "User Area ";
+    $page_title = 'User';
+    echo '<title> Webflix ∙ ' . $page_title . '</title>';
 
     $q = "SELECT * FROM users WHERE user_id={$_SESSION["user_id"]}";
     $r = mysqli_query($link, $q);
@@ -69,7 +70,7 @@
                 </div>
             ';
         }
-        mysqli_close($link);
+        // mysqli_close($link);
     } else {
         echo '
             <div class="alert alert-danger" alert-dismissible fade show" role="alert">
@@ -81,6 +82,34 @@
                 <h3>No card stored.</h3>
             </div>
         ';
+    }
+    
+    // echo '<h1>bruh</h1>';
+
+    $premium = true;
+
+    $q = "SELECT * FROM users WHERE user_id={$_SESSION["user_id"]}";
+    $r = mysqli_query($link, $q);
+    if (mysqli_num_rows($r) > 0) {
+        echo '<div class="col-sm">';
+        while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
+            echo '
+                    <div class="alert alert-secondary" alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h1>Subscription</h1>
+                        
+                        <p><strong> Premium subscription: </strong> '  . ($row['premium'] ? "Active" : "Not active") . ' </p>
+                        
+                        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#subscription">
+                            <i class="fa fa-edit"></i>  Change Subscription
+                        </button>
+                    </div>
+                </div>
+            ';
+        }
+        mysqli_close($link);
     }
     include(dirname(__FILE__) . "/../includes/footer.html");
 ?>
@@ -108,10 +137,10 @@
             </div>
             <div class="modal-footer">
                 <div class="form-group">
-                    <input type="submit" name="btnChangePassword" class="btn btn-dark btn-lg btn-block" value="Save Changes" />
+                    <input type="submit" name="btnChangePassword" class="btn btn-dark btn-lg btn-block" value="Save Changes"/>
                 </div>
             </div>
-            </form>
+                </form>
         </div>
     </div>
 </div>
@@ -146,10 +175,37 @@
                     </div>
                     <div class="modal-footer">
                         <div class="form-group">
-                            <input type="submit" name="btnUpdateCard" class="btn btn-dark btn-lg btn-block" value="Save Changes" />
+                            <input type="submit" name="btnUpdateCard" class="btn btn-dark btn-lg btn-block" value="Save Changes"/>
                         </div>
                     </div>
                 </form>
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="subscription" tabindex="-1" role="dialog" aria-labelledby="card" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Update Subscription</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="change-subscription.php" method="post">
+                    <div class="form-group">
+                        <p>Activate premium subscription?</p>
+                        <input type="checkbox" name="subscription" class="form-control" placeholder="Premium subscription" value="Premium">
+                    </div>
+            </div>
+            
+                    <div class="modal-footer">
+                        <div class="form-group">
+                            <input type="submit" name="btnUpdateSubscription" class="btn btn-dark btn-lg btn-block" value="Save Changes"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

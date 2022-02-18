@@ -4,6 +4,9 @@
     require(dirname(__FILE__) . "/common/redirect.php");
     require(dirname(__FILE__) . "/common/connect_db.php");
 
+    $page_title = 'Post Review';
+    echo '<title> Webflix ∙ ' . $page_title . '</title>';
+
     // Check form submitted.
     if ($_SERVER['REQUEST_METHOD'] = 'POST') {
         $q = "INSERT INTO mov_rev(id, first_name, last_name, movie_title, rate, message, post_date)

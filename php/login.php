@@ -1,6 +1,9 @@
 <?php
     require(dirname(__FILE__) . "/common/head.php");
 
+    $page_title = 'Login';
+    echo '<title> Webflix ∙ ' . $page_title . '</title>';
+
     if (isset($errors) && !empty($errors)) {
         echo '<p id="err_msg">Oops! There was a problem:<br>';
         
@@ -17,6 +20,6 @@
     <p>Email Address: <input type="text" name="email"> </p>
     <p>Password: <input type="password" name="pass"></p>
 
-    <p>Don't have an account? <a href="./index.php">Register</a></p>
+    <p>Don't have an account? <a href="./register_form.php">Register</a></p>
     <p><input type="submit" value="Login" ></p>
 </form>

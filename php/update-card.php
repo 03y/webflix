@@ -4,6 +4,9 @@
     require(dirname(__FILE__) . "/common/redirect.php");
     require(dirname(__FILE__) . "/common/connect_db.php");
 
+    $page_title = 'Updating Card';
+    echo '<title> Webflix ∙ ' . $page_title . '</title>';
+
     // Check form submitted.
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors = array();

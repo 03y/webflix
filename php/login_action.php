@@ -1,6 +1,9 @@
 <?php
     require(dirname(__FILE__) . "/common/head.php");
     
+    $page_title = 'Login';
+    echo '<title> Webflix ∙ ' . $page_title . '</title>';
+
     // Check form submitted.
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         require(dirname(__FILE__) . "/common/connect_db.php");

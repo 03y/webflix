@@ -1,6 +1,9 @@
 <?php
     require(dirname(__FILE__) . "/common/head.php");
 
+    $page_title = 'Register';
+    echo '<title> Webflix ∙ ' . $page_title . '</title>';
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require(dirname(__FILE__) . "/common/connect_db.php");
         $errors = array();
@@ -56,9 +59,11 @@
         } else {
             $cvv = mysqli_real_escape_string($link, trim($_POST["cvv"]));
         }
+        
+        // empty box is ok as this means no premium
+        $premium = isset($_POST['premium']) ? 1 : 0;
 
         if (empty($errors)) {
-            
             $q = "SELECT user_id FROM users WHERE email = 'e'";
             $r = @mysqli_query($link, $q);
             
@@ -69,8 +74,8 @@
         }
         
         if (empty($errors)) {
-            $q = "INSERT INTO users (first_name, last_name, email, pass, card_number, exp_month, exp_year, cvv, reg_date)
-                VALUES ('$fn', '$ln', '$e', SHA2('$p', 256), $card_no, $exp_m, $exp_y, $cvv, NOW())";
+            $q = "INSERT INTO users (first_name, last_name, email, pass, card_number, exp_month, exp_year, cvv, reg_date, premium)
+                VALUES ('$fn', '$ln', '$e', SHA2('$p', 256), $card_no, $exp_m, $exp_y, $cvv, NOW(), $premium)";
             $r = @mysqli_query($link, $q);
 
             if ($r) {

@@ -2,14 +2,16 @@
 <html lang="en">
     <head>
         <?php
-            include(dirname(__FILE__) . "/includes/head.html");
-            include(dirname(__FILE__) . "/includes/login.html");
+            require(dirname(__FILE__) . "/common/head.php");
+
+            $page_title = 'Register';
+            echo '<title> Webflix ∙ ' . $page_title . '</title>';
         ?>
     </head>
 
     <body>
         <h1>Register</h1>
-        <form action = "php/register.php" method = "post">
+        <form action = "register.php" method = "post">
             <p>
                 First Name: <input type = "text" name = "first_name" size = "20" 
                 value = "<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>"> 
@@ -37,6 +39,9 @@
                 
                 <br>Security: <input type = "text" name = "cvv" size = "20" 
                     value = "<?php if (isset($_POST['cvv'])) echo $_POST['cvv']; ?>">
+                
+                <br><br>Premium Subscription (£99.99 pa): <input type = "checkbox" name = "premium" size = "20" 
+                    value = "<?php if (isset($_POST['premium'])) echo $_POST['premium']; ?>">
                 
                 <br>
                 <br>

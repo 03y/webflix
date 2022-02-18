@@ -3,6 +3,9 @@
     require(dirname(__FILE__) . "/common/head.php");
     require(dirname(__FILE__) . "/common/connect_db.php");
 
+    $page_title = 'Review';
+    echo '<title> Webflix ∙ ' . $page_title . '</title>';
+
     $q = "SELECT * FROM mov_rev ORDER BY post_date DESC";
     $r = mysqli_query($link, $q);
     if (mysqli_num_rows($r) > 0) {

@@ -4,6 +4,9 @@
     require(dirname(__FILE__) . "/common/redirect.php");
     require(dirname(__FILE__) . "/common/connect_db.php");
     
+    $page_title = 'Delete Post';
+    echo '<title> Webflix ∙ ' . $page_title . '</title>';
+    
     if (isset($_GET['post_id'])) $post_id = $_GET['post_id'];
     
     $sql = "DELETE FROM mov_rev WHERE post_id='$post_id'";

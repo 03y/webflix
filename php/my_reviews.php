@@ -4,6 +4,9 @@
     require(dirname(__FILE__) . "/common/redirect.php");
     require(dirname(__FILE__) . "/common/connect_db.php");
 
+    $page_title = 'My Reviews';
+    echo '<title> Webflix ∙ ' . $page_title . '</title>';
+
     $q = "SELECT * FROM mov_rev WHERE id={$_SESSION["user_id"]}
             ORDER BY post_date DESC";
 

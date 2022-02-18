@@ -4,6 +4,9 @@
     require(dirname(__FILE__) . "/common/head.php");
     require(dirname(__FILE__) . "/common/redirect.php");
 
+    $page_title = 'Logout';
+    echo '<title> Webflix ∙ ' . $page_title . '</title>';
+
     $_SESSION = array();
     session_destroy();
 

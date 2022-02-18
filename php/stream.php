@@ -4,6 +4,9 @@
     require(dirname(__FILE__) . "/common/redirect.php");
     require(dirname(__FILE__) . "/common/connect_db.php");
 
+    $page_title = 'Stream';
+    echo '<title> Webflix ∙ ' . $page_title . '</title>';
+
     if (isset($_GET['id'])) $id = $_GET['id'];
     
     $q = "SELECT preview FROM movie WHERE id = $id";

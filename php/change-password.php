@@ -3,6 +3,9 @@
     require(dirname(__FILE__) . "/common/head.php");
     require(dirname(__FILE__) . "/common/redirect.php");
 
+    $page_title = 'Change Password';
+    echo '<title> Webflix ∙ ' . $page_title . '</title>';
+
     // Check form submitted.
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require(dirname(__FILE__) . "/common/connect_db.php");
