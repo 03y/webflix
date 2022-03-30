@@ -20,7 +20,7 @@
                 <h1 class="display-4">' . $row['movie_title'] . '</h1>
                 <div class="row">
                     <div class="col-sm-12 col-md-4">
-                        <img border="0" alt="' . $row['movie_title'] . '" src=\'/../assets/' . $row['img'] . '\'">
+                        <img width="256" height="400" border="0" alt="' . $row['movie_title'] . '" src=\'/../assets/' . $row['img'] . '\'">
                         <br>
                         <br>
                         <p>' . $row['further_info'] . '</p>
@@ -44,7 +44,7 @@
                 <div class="col-sm-12 col-md-4">
                     <h4>Stream</h4>
                     <h2> 
-                    <a href="' . $row['preview'] . '"> <button type="button" class="btn btn-secondary" role="button"> Stream Now </button></a>
+                    <a href="stream.php?id=' . $row['id'] . '"> <button type="button" class="btn btn-secondary" role="button"> Stream Now </button></a>
                     <hr>
                     <h4>Movie Reviews</h4>
                     <hr>
