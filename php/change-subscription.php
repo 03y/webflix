@@ -8,19 +8,27 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require(dirname(__FILE__) . "/common/connect_db.php");
+
+        if (empty($_POST["email"])) {
+            $errors[] = "Enter your email address.";
+        } else {
+            $e = mysqli_real_escape_string($link, trim($_POST["email"]));
+        }
+
+        $premium_subscription = 1;
+        if ($_POST["subscription"] == "free-subscription") {
+            $premium_subscription = 0;
+        }
         
         $errors = array();
         if (empty($errors)) {
-            echo '<h1>' . $_POST["premium"] . '</h1>';
-            
-            // $q = 'UPDATE users SET premium=$_POST["premium"] WHERE id=$_POST["id"]';
-            // $r = @mysqli_query($link, $q);
-            
-            // if ($r) {
-            //     header("Location: user.php");
-            // } else {
-            //     echo "Error updating record: " . $link->error;
-            // }
+            $q = 'UPDATE users SET premium=' . $premium_subscription . ' WHERE email="' . $e . '"';
+            $r = @mysqli_query($link, $q);
+            if ($r) {
+                echo '<p>Updated subscription status to ' . ($premium_subscription ? "<b>premium</b>" : "<b>free</b>") . '.</p>';
+            } else {
+                echo "Error updating record: " . $link->error;
+            }
             mysqli_close($link);
             exit();
         } else {

@@ -83,8 +83,6 @@
             </div>
         ';
     }
-    
-    // echo '<h1>bruh</h1>';
 
     $premium = true;
 
@@ -195,8 +193,17 @@
             <div class="modal-body">
                 <form action="change-subscription.php" method="post">
                     <div class="form-group">
-                        <p>Activate premium subscription?</p>
-                        <input type="checkbox" name="subscription" class="form-control" placeholder="Premium subscription" value="Premium">
+                        <!-- <p>Activate premium subscription?</p> -->
+                        <!-- <input type="checkbox" name="subscription" class="form-control" placeholder="Premium subscription" value="Premium"> -->
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="Confirm Email" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" required>
+                        </div>
+                        
+                        <label for="subscription">Subscription</label>
+                        <select name="subscription" id="subscription">
+                            <option value="premium-subscription">Premium</option>
+                            <option value="free-subscription">Free</option>
+                        </select> 
                     </div>
             </div>
             
