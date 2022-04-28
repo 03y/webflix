@@ -44,7 +44,7 @@
                 <div class="col-sm-12 col-md-4">
                     <h4>Stream</h4>
                     <h2> 
-                    <a href="stream.php?id=' . $row['id'] . '"> <button type="button" class="btn btn-secondary" role="button"> Stream Now </button></a>
+                    <a href="stream.php?id=' . $row['id'] . '"> <button type="button" class="btn btn-secondary" role="button" id="btn-stream"> Stream Now </button></a>
                     <hr>
                     <h4>Movie Reviews</h4>
                     <hr>

@@ -22,12 +22,12 @@
 
     .zoom {
         padding: 50px;
-        transition: transform .2s; /* Animation */
+        transition: transform .2s;
         margin: 0 auto;
     }
     
     .zoom:hover {
-        transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+        transform: scale(1.2);
     }
     </style>
     ';
@@ -41,10 +41,10 @@
             echo '<div class="zoom">';
             echo '
             <a href="./movie.php?id=' . $row['id'] . '">
-                <img width="256" height="400" border="0" alt="' . $row['movie_title'] . '" src=\'/../assets/' . $row['img'] . '\'">
+                <img width="256" height="400" border="0" alt="' . $row['movie_title'] . '" id="film-' . $row['id'] . '" src=\'/../assets/' . $row['img'] . '\'">
             </a>
                 <h2>' . $row['movie_title'] . '</h2>
-                <a href="./movie.php?id=' . $row['id'] . '">' . (isset($_SESSION['user_id']) ? 'Stream Now' : 'Login to Stream') . '</a>
+                <a href="./movie.php?id=' . $row['id'] . '" >' . (isset($_SESSION['user_id']) ? 'Stream Now' : 'Login to Stream') . '</a>
                 <br><br><br>
             ';
             echo '</div>';

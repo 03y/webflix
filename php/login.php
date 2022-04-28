@@ -17,9 +17,9 @@
 
 <h1>Login</h1>
 <form action="login_action.php" method="post">
-    <p>Email Address: <input type="text" name="email"> </p>
-    <p>Password: <input type="password" name="pass"></p>
+    <p>Email Address: <input type="text" name="email" id="email"> </p>
+    <p>Password: <input type="password" name="pass" id="pass"></p>
 
     <p>Don't have an account? <a href="./register_form.php">Register</a></p>
-    <p><input type="submit" value="Login" ></p>
+    <p><input type="submit" value="Login" id="login_submit"></p>
 </form>
