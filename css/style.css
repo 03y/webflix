@@ -66,3 +66,12 @@ li a:hover {
 .modal {
     color: #1e1e1e;
 }
+
+table,
+th,
+td {
+    border: 1px solid grey;
+    padding: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
