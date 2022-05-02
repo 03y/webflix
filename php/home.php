@@ -14,6 +14,7 @@
         grid-template-columns: auto auto auto;
         padding: 10px;
     }
+    
     .grid-item {
         padding: 20px;
         font-size: 30px;

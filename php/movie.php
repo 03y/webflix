@@ -1,16 +1,12 @@
 <?php
     session_start();
     require(dirname(__FILE__) . "/common/head.php");
-    // require(dirname(__FILE__) . "/common/redirect.php");
     require(dirname(__FILE__) . "/common/connect_db.php");
     
     if (isset($_GET['id'])) $id = $_GET['id'];
     $q = "SELECT * FROM movie WHERE id = $id";
     $r = mysqli_query($link, $q);
     
-    // idk what premium subscription does.
-    // so um yeah it doesnt do anything rn.
-
     if (mysqli_num_rows($r) == 1) {
         $row = mysqli_fetch_array($r, MYSQLI_ASSOC);
         $page_title = $row['movie_title'];
@@ -20,7 +16,7 @@
                 <h1 class="display-4">' . $row['movie_title'] . '</h1>
                 <div class="row">
                     <div class="col-sm-12 col-md-4">
-                        <img width="256" height="400" border="0" alt="' . $row['movie_title'] . '" src=\'/../assets/' . $row['img'] . '\'">
+                        <img width="256" height="400" border="0" alt="' . $row['movie_title'] . '" src=\'../assets/' . $row['img'] . '.jpg\'">
                         <br>
                         <br>
                         <p>' . $row['further_info'] . '</p>
