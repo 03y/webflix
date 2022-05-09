@@ -4,7 +4,7 @@
 Make sure to have git installed, xampp is installed with the script.
 
 ### Linux/UNIX (MacOS)
-Run with bash.
+Run with bash (or similar).
 ```
 # Alternatively you could install this using your system's package manager.
 wget https://www.apachefriends.org/xampp-files/8.1.5/xampp-linux-x64-8.1.5-0-installer.run
