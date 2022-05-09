@@ -3,7 +3,7 @@
 ## Running
 Make sure to have git installed, xampp is installed with the script.
 
-### Linux/UNIX
+### Linux/UNIX (MacOS)
 Run with bash.
 ```
 # Alternatively you could install this using your system's package manager.
