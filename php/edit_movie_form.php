@@ -7,21 +7,18 @@
 
     if (isset($errors) && !empty($errors)) {
         echo '<p id="err_msg">Oops! There was a problem:<br>';
-        
         foreach ($errors as $msg) {
             echo " - $msg<br>";
         }
-        
-        echo 'brokey</p>';
+        echo '</p>';
     }
 
-    // get id from URL
+    // Get id from URL.
     if (isset($_GET['id'])) $id = $_GET['id'];
 
-    // require database connection
     require(dirname(__FILE__) . "/common/connect_db.php");
 
-    // SQL get movie data
+    // Get movie data from database.
     $q = "SELECT * FROM movie WHERE id = $id";
     $r = mysqli_query($link, $q);
     if (!$r) {

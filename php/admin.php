@@ -6,15 +6,15 @@
     $page_title = 'Admin';
     echo '<title> Webflix ∙ ' . $page_title . '</title>';
 
-    // echo all the movies in a table
-    // columns are id, movie_title, further_info, img, preview
+    // Echo all the movies in a table.
+    // Columns are id, movie_title, further_info, img, preview.
     $query = "SELECT * FROM movie";
     $result = mysqli_query($link, $query);
     if (!$result) {
         die("Database query failed.");
     }
 
-    // table css
+    // Render in a nice HTML table.
     echo '<style>
     table,
     th,
@@ -49,7 +49,7 @@
     }
     echo '</table>';
 
-    // link to add movie form
+    // Link to back to add movie form.
     echo '<br><a href="add_movie_form.php">Add Movie</a>';
     
     include(dirname(__FILE__) . "/../includes/footer.html");

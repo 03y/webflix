@@ -1,22 +1,20 @@
 <?php
-    // check if admin
     require(dirname(__FILE__) . "/common/admin_check.php");
     require(dirname(__FILE__) . "/common/head.php");
 
     $page_title = 'Add Movie';
     echo '<title> Webflix ∙ ' . $page_title . '</title>';
 
+    // Error if failed.
     if (isset($errors) && !empty($errors)) {
         echo '<p id="err_msg">Oops! There was a problem:<br>';
-        
         foreach ($errors as $msg) {
             echo " - $msg<br>";
         }
-        
-        echo 'brokey</p>';
+        echo '</p>';
     }
 ?>
-
+<!-- Form for adding new movies. -->
 <h1>Add Movie</h1>
 <form action="add_movie.php" method="post">
     <p>

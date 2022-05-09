@@ -13,9 +13,11 @@
     $page_title = 'User';
     echo '<title> Webflix ∙ ' . $page_title . '</title>';
 
+    // Query database.
     $q = "SELECT * FROM users WHERE user_id={$_SESSION["user_id"]}";
     $r = mysqli_query($link, $q);
 
+    // Query output.
     if (mysqli_num_rows($r) > 0) {
         echo '
             <div class="container">

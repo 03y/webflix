@@ -8,6 +8,7 @@
     echo '<title> Webflix ∙ ' . $page_title . '</title>';
 
     $_SESSION = array();
+    // Kill session varibles.
     session_destroy();
 
     echo '<h1>Goodbye!</h1><p>You are now logged out.</p><p><a href="login.php">Login</a></p>';

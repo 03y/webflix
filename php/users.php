@@ -6,14 +6,14 @@
     $page_title = 'Users';
     echo '<title> Webflix ∙ ' . $page_title . '</title>';
 
-    // echo all the users in a table
-    // columns are user_id, first_name, last_name, email, card_number, exp_month, exp_year, cvv, reg_date, premium
+    // Echo all the users in a table.
+    // Columns are user_id, first_name, last_name, email, card_number, exp_month, exp_year, cvv, reg_date, premium.
     $query = "SELECT * FROM users";
     $result = mysqli_query($link, $query);
     if (!$result) {
         die("Database query failed.");
     } else {
-        // table css
+        // Render in a nice HTML table.
         echo '<style>
         table,
         th,

@@ -15,13 +15,13 @@
         echo 'brokey</p>';
     }
 
-    // get user id from URL
+    // Get user id from URL.
     if (isset($_GET['user_id'])) $user_id = $_GET['user_id'];
 
-    // require database connection
+    // Require database connection
     require(dirname(__FILE__) . "/common/connect_db.php");
 
-    // SQL get movie data
+    // Get user data from database.
     $q = "SELECT * FROM users WHERE user_id = $user_id";
     $r = mysqli_query($link, $q);
     if (!$r) {
@@ -39,6 +39,7 @@
     }
 ?>
 
+<!-- Form -->
 <h1>Edit User</h1>
 <form action="edit_user.php" method="post" id="edit_user">
     <p>

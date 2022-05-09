@@ -6,6 +6,7 @@
     $page_title = 'Change Subscription';
     echo '<title> Webflix ∙ ' . $page_title . '</title>';
 
+    // Get data from form submission.
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require(dirname(__FILE__) . "/common/connect_db.php");
 
@@ -16,12 +17,14 @@
         }
 
         $premium_subscription = 1;
+        // Parse checkbox from form.
         if ($_POST["subscription"] == "free-subscription") {
             $premium_subscription = 0;
         }
         
         $errors = array();
         if (empty($errors)) {
+            // Update the database.
             $q = 'UPDATE users SET premium=' . $premium_subscription . ' WHERE email="' . $e . '"';
             $r = @mysqli_query($link, $q);
             if ($r) {

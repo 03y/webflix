@@ -1,5 +1,5 @@
 <?php
-    // session_start();
+    session_start();
     require(dirname(__FILE__) . "/common/head.php");
     require(dirname(__FILE__) . "/common/redirect.php");
     require(dirname(__FILE__) . "/common/connect_db.php");
@@ -12,7 +12,7 @@
     error_reporting(E_ALL);
 
     // Check form submitted.
-    if ($_SERVER['REQUEST_METHOD'] = 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $q = "INSERT INTO mov_rev(id, first_name, last_name, movie_title, rate, message, post_date)
                 VALUES('{$_SESSION["user_id"]}',
                     '{$_SESSION["first_name"]}',
@@ -22,15 +22,12 @@
                     '{$_POST["message"]}',
                     NOW())
         ";
-        
-        echo $q;
 
-        $r = mysqli_query ( $link, $q ) ;
+        $r = mysqli_query ( $link, $q );
         if (mysqli_affected_rows($link) != 1) { 
             echo '<p>Error</p>'.mysqli_error($link);
-        } else {
-            // include('review.php');
         }
-        // header("Location: review.php");
+        // Redirect back to review page.
+        header("Location: review.php");
     }
 ?>

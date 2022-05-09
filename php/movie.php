@@ -3,10 +3,14 @@
     require(dirname(__FILE__) . "/common/head.php");
     require(dirname(__FILE__) . "/common/connect_db.php");
     
+    // Get movie ID from URL.
     if (isset($_GET['id'])) $id = $_GET['id'];
+    
+    // Query database.
     $q = "SELECT * FROM movie WHERE id = $id";
     $r = mysqli_query($link, $q);
     
+    // Output from query.
     if (mysqli_num_rows($r) == 1) {
         $row = mysqli_fetch_array($r, MYSQLI_ASSOC);
         $page_title = $row['movie_title'];
@@ -34,7 +38,7 @@
                     </div>
         ';
 
-        // if logged in
+        // If logged in.
         if (isset($row['id'])) {
             echo '
                 <div class="col-sm-12 col-md-4">

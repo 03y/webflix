@@ -1,13 +1,17 @@
 <?php
     session_start();
     require(dirname(__FILE__) . "/common/head.php");
+    require(dirname(__FILE__) . "/common/redirect.php");
     require(dirname(__FILE__) . "/common/connect_db.php");
 
     $page_title = 'Review';
     echo '<title> Webflix ∙ ' . $page_title . '</title>';
 
+    // Query database for reviews.
     $q = "SELECT * FROM mov_rev ORDER BY post_date DESC";
     $r = mysqli_query($link, $q);
+
+    // Query output.
     if (mysqli_num_rows($r) > 0) {
         echo '<div class="container">';
         while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
@@ -33,7 +37,7 @@
             <div class="container">
                 <div class="alert alert-secondary" role="alert">
                     <p>There are currently no movie reviews.</p>
-                    <a href="post.php><button type="button" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#rev">Add Movie Review</button></a>
+                    <a href="post.php><button type="button" id="btn-add-review" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#rev">Add Movie Review</button></a>
                 </div>
             <div>
         ';

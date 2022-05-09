@@ -13,7 +13,7 @@
         list($check, $data) = validate($link, $_POST['email'], $_POST['pass']);
         
         if ($check) {
-            // check if user is banned
+            // Check if user is banned.
             $q = 'SELECT status FROM users WHERE email LIKE "' . $_POST['email'] . '"';
             $r = mysqli_query($link, $q);
             $row = mysqli_fetch_array($r, MYSQLI_ASSOC);

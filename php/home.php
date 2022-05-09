@@ -6,7 +6,7 @@
     $page_title = 'Home';
     echo '<title> Webflix ∙ ' . $page_title . '</title>';
 
-    // inline css..
+    // Not a fan on inline CSS here.
     echo '
     <style>
     .grid-container {
@@ -33,7 +33,10 @@
     </style>
     ';
 
+    // Put films into a grid.
     echo '<div class="grid-container">';
+
+    // Get from database.
     $q = "SELECT * FROM movie";
     $r = mysqli_query($link, $q);
     if (mysqli_num_rows($r) > 0) {
@@ -53,7 +56,7 @@
         }
         mysqli_close($link);
     } else {
-        echo '<p>No content available to stream (database likely down).</p>';
+        echo '<p>No content available (database likely down, contact an admin).</p>';
     }
     echo '</div>';
     

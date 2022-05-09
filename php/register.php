@@ -35,7 +35,7 @@
         if (empty($_POST["country"])) {
             $errors[] = "Enter your country.";
         } else {
-            $country = mysqli_real_escape_string($link, trim($_POST["country"]));
+            $c = mysqli_real_escape_string($link, trim($_POST["country"]));
         }
 
         if (!empty($_POST["pass1"])) {
@@ -89,7 +89,7 @@
         
         if (empty($errors)) {
             $q = "INSERT INTO users (first_name, last_name, email, contact_no, country, pass, card_number, exp_month, exp_year, cvv, reg_date, status, premium)
-                VALUES ('$fn', '$ln', '$e', $contact_no, $country, SHA2('$p', 256), $card_no, $exp_m, $exp_y, $cvv, NOW(), $status, $premium)";
+                VALUES ('$fn', '$ln', '$e', '$contact_no', '$c', SHA2('$p', 256), '$card_no', '$exp_m', '$exp_y', '$cvv', NOW(), '$status', $premium)";
             $r = @mysqli_query($link, $q);
 
             if ($r) {

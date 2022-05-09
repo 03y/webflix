@@ -5,6 +5,7 @@
     $page_title = 'Edit Movie';
     echo '<title> Webflix ∙ ' . $page_title . '</title>';
 
+    // Get data from form submission.
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require(dirname(__FILE__) . "/common/connect_db.php");
         $errors = array();
@@ -48,7 +49,7 @@
             } else {
                 echo "Updated movie";
 
-                // link back to admin page
+                // Link back to admin page.
                 echo '<br><a href="admin.php">Back to admin page</a>';
             }
 

@@ -9,6 +9,7 @@
 
     if (isset($_GET['id'])) $id = $_GET['id'];
 
+    // Out of scope message.
     echo '<p>This is a placeholder for what WOULD be the full content, however that is outside of the scope of this project.</p>';
     echo '<input type="button" value="Back" onclick="window.history.back()" />';
 

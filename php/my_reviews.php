@@ -7,10 +7,12 @@
     $page_title = 'My Reviews';
     echo '<title> Webflix ∙ ' . $page_title . '</title>';
 
+    // Query database for reviews by user.
     $q = "SELECT * FROM mov_rev WHERE id={$_SESSION["user_id"]}
             ORDER BY post_date DESC";
-
     $r = mysqli_query($link, $q);
+
+    // Query output.
     if (mysqli_num_rows($r) > 0) {
         echo '<div class="container">';
         while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {

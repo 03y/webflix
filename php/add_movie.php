@@ -5,6 +5,7 @@
     $page_title = 'Add Movie';
     echo '<title> Webflix ∙ ' . $page_title . '</title>';
 
+    // Get data from form submission.
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require(dirname(__FILE__) . "/common/connect_db.php");
         $errors = array();
@@ -34,6 +35,7 @@
         }
 
         if (empty($errors)) {
+            // Insert into database.
             $q = "INSERT INTO movie (movie_title, further_info, img, preview) VALUES ('$title', '$info', '$img', '$preview')";
             $r = mysqli_query($link, $q);
             if (!$r) {
@@ -41,7 +43,7 @@
             } else {
                 echo "Added movie";
                 
-                    // table css
+                // Render into a nice HTML table.
                 echo '<style>
                 table,
                 th,
@@ -53,7 +55,7 @@
                 }
                 </style>';
                 
-                // table with movie data
+                // Table with movie data.
                 echo '<table>';
                 echo '<tr>';
                 echo '<th>Movie Title</th>';
@@ -69,10 +71,11 @@
                 echo '</tr>';  
                 echo '</table>';
 
-                // link back to admin page
+                // Link back to admin page.
                 echo '<br><a href="admin.php">Back to admin page</a>';
             }
         } else {
+            // Errors if something went wrong.
             echo "There were " . count($errors) . " errors in the form.";
             echo "<br>";
             echo "<br>";

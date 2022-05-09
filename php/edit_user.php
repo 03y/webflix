@@ -5,6 +5,7 @@
     $page_title = 'Edit User';
     echo '<title> Webflix ∙ ' . $page_title . '</title>';
 
+    // Get data from form submission.
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require(dirname(__FILE__) . "/common/connect_db.php");
         $errors = array();
@@ -46,11 +47,12 @@
         }
         
 
+        // Parse data for non-text fields.
         $status = isset($_POST['status']) ? "Banned" : "Active";
-
         $premium = isset($_POST['premium']) ? 1 : 0;
 
         if (empty($errors)) {
+            // Update database.
             $q = "UPDATE users SET first_name = '$first_name', last_name = '$last_name', email = '$email', contact_no = '$contact_no', country = '$country', status = '$status', premium = '$premium' WHERE user_id = '$user_id'";
             $r = mysqli_query($link, $q);
 
@@ -59,7 +61,7 @@
             } else {
                 echo "Updated user";
 
-                // link back to admin page
+                // Link back to admin page.
                 echo '<br><a href="users.php">Back to admin page</a>';
             }
 

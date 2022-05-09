@@ -6,8 +6,10 @@
     $page_title = 'Review';
     echo '<title> Webflix ∙ ' . $page_title . '</title>';
 
+    // Get movie ID from URL.
     if (isset($_GET['movie_title'])) $movie_title = $_GET['movie_title'];
     
+    // Query database.
     $q = "SELECT * FROM mov_rev WHERE movie_title LIKE '%{$_GET["movie_title"]}%'";
     $r = mysqli_query($link, $q);
     if (mysqli_num_rows($r) > 0) {
@@ -58,6 +60,7 @@
         <div class="modal-body">
 
 <?php
+    // Form for writing new review.
     echo '
         <form action="post_action.php" method="post" accept-charset="utf-8">
             <div class="form-check">
