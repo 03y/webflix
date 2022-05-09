@@ -2,7 +2,7 @@
     require(dirname(__FILE__) . "/common/admin_check.php");
     require(dirname(__FILE__) . "/common/head.php");
 
-    $page_title = 'Add Movie';
+    $page_title = 'Edit Movie';
     echo '<title> Webflix ∙ ' . $page_title . '</title>';
 
     if (isset($errors) && !empty($errors)) {

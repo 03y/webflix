@@ -22,6 +22,12 @@
                 <br>Email: <input type="text" name="email" size="20" id="email" 
                     value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>">
                 
+                <br>Contact Number: <input type="text" name="contact_no" size="20" id="contact_no" 
+                    value="<?php if (isset($_POST['contact_no'])) echo $_POST['contact_no']; ?>">
+                
+                <br>Country: <input type="text" name="country" size="20" id="country" 
+                    value="<?php if (isset($_POST['country'])) echo $_POST['country']; ?>">
+                
                 <br>Password: <input type="password" name="pass1" size="20" id="pass1" 
                     value="<?php if (isset($_POST['pass1'])) echo $_POST['pass1']; ?>">
                 

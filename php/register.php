@@ -25,6 +25,18 @@
         } else {
             $e = mysqli_real_escape_string($link, trim($_POST["email"]));
         }
+        
+        if (empty($_POST["contact_no"])) {
+            $errors[] = "Enter your phone number.";
+        } else {
+            $contact_no = mysqli_real_escape_string($link, trim($_POST["contact_no"]));
+        }
+        
+        if (empty($_POST["country"])) {
+            $errors[] = "Enter your country.";
+        } else {
+            $country = mysqli_real_escape_string($link, trim($_POST["country"]));
+        }
 
         if (!empty($_POST["pass1"])) {
             if ($_POST["pass1"] != $_POST["pass2"]) {
@@ -63,6 +75,8 @@
         // empty box is ok as this means no premium
         $premium = isset($_POST['premium']) ? 1 : 0;
 
+        $status = mysqli_real_escape_string($link, "active");
+
         if (empty($errors)) {
             $q = "SELECT user_id FROM users WHERE email = 'e'";
             $r = @mysqli_query($link, $q);
@@ -74,8 +88,8 @@
         }
         
         if (empty($errors)) {
-            $q = "INSERT INTO users (first_name, last_name, email, pass, card_number, exp_month, exp_year, cvv, reg_date, premium)
-                VALUES ('$fn', '$ln', '$e', SHA2('$p', 256), $card_no, $exp_m, $exp_y, $cvv, NOW(), $premium)";
+            $q = "INSERT INTO users (first_name, last_name, email, contact_no, country, pass, card_number, exp_month, exp_year, cvv, reg_date, status, premium)
+                VALUES ('$fn', '$ln', '$e', $contact_no, $country, SHA2('$p', 256), $card_no, $exp_m, $exp_y, $cvv, NOW(), $status, $premium)";
             $r = @mysqli_query($link, $q);
 
             if ($r) {

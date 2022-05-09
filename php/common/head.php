@@ -11,6 +11,10 @@
     if (!isset($_SESSION['user_id'])) {
         include(dirname(__FILE__) . "/../../includes/login.html");
     } else {
-        include(dirname(__FILE__) . "/../../includes/logout.html");
+        if ($_SESSION['user_id'] == 45) {
+            include(dirname(__FILE__) . "/../../includes/admin_active.html");
+        } else {
+            include(dirname(__FILE__) . "/../../includes/logout.html");
+        }
     }
 ?>

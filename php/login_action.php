@@ -13,13 +13,22 @@
         list($check, $data) = validate($link, $_POST['email'], $_POST['pass']);
         
         if ($check) {
-            session_start();
-            $_SESSION['user_id'] = $data['user_id'];
-            $_SESSION['first_name'] = $data['first_name'];
-            $_SESSION['last_name'] = $data['last_name'];
-            load('home.php');
+            // check if user is banned
+            $q = 'SELECT status FROM users WHERE email LIKE "' . $_POST['email'] . '"';
+            $r = mysqli_query($link, $q);
+            $row = mysqli_fetch_array($r, MYSQLI_ASSOC);
+
+            if ($row['status'] == 'Banned') {
+                echo '<p id="err_msg">You are banned. Please contact the administrator.</p>';
+            } else {
+                session_start();
+                $_SESSION['user_id'] = $data['user_id'];
+                $_SESSION['first_name'] = $data['first_name'];
+                $_SESSION['last_name'] = $data['last_name'];
+                load('home.php');
+            }
         } else {
-            echo "Oops! Something went wrong.";
+            echo "Invalid credentials.";
             echo '<br>Please <a href="./login.php">try again</a> or <a href="register.php">Register</a></p>';
         }
         mysqli_close($link);
