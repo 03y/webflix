@@ -3,8 +3,7 @@
 ## Running
 Make sure to have git installed, xampp is installed with the script.
 
-### Linux/UNIX (MacOS)
-Run with bash (or similar).
+### UNIX-like (Linux/MacOS/BSD)
 ```
 # Alternatively you could install this using your system's package manager.
 wget https://www.apachefriends.org/xampp-files/8.1.5/xampp-linux-x64-8.1.5-0-installer.run
@@ -18,8 +17,7 @@ sudo /opt/lampp/xampp start
 xdg-open http://localhost/phpmyadmin
 ```
 
-### Windows
-Run with powershell.
+### Windows 10+
 ```
 winget install xampp
 
