@@ -27,6 +27,6 @@ C:\xampp\xampp_start.exe
 Start-Process "http://localhost/phpmyadmin"
 ```
 
-*You will then need to create the `webflix` table and run `backup.sql` to create and populate tables (might get round to automating this at some point).*
-Site can then be accessed at `http://localhost/GU2/`
+*You will then need to create the `webflix` table and run `backup.sql` to create and populate tables (might get round to automating this at some point).* \
+Site can then be accessed at `http://localhost/GU2/`.
 
