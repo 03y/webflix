@@ -1,6 +1,6 @@
 describe('Tests', function () {
     beforeEach(() => {
-        cy.visit('localhost/GU2');
+        cy.visit('moir.org.uk');
         cy.wait(500);
     });
 

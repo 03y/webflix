@@ -12,7 +12,7 @@ sudo ./xampp-linux-x64-8.1.5-0-installer.run
 rm xampp-linux-x64-8.1.5-0-installer.run
 
 cd /opt/lampp/htdocs
-git clone https://github.com/03y/webflix.git GU2
+git clone https://github.com/03y/webflix.git
 sudo /opt/lampp/xampp start
 xdg-open http://localhost/phpmyadmin
 ```
@@ -22,11 +22,11 @@ xdg-open http://localhost/phpmyadmin
 winget install xampp
 
 cd C:\xampp\htdocs
-git clone https://github.com/03y/webflix.git GU2
+git clone https://github.com/03y/webflix.git
 C:\xampp\xampp_start.exe
 Start-Process "http://localhost/phpmyadmin"
 ```
 
 *You will then need to create the `webflix` table and run `backup.sql` to create and populate tables (might get round to automating this at some point).* \
-Site can then be accessed at `http://localhost/GU2/`.
+Site can then be accessed at `http://localhost/webflix`.
 
