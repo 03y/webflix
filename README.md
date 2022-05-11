@@ -8,7 +8,7 @@ Make sure to have git installed, xampp is installed with the script.
 # Alternatively you could install this using your system's package manager.
 wget https://www.apachefriends.org/xampp-files/8.1.5/xampp-linux-x64-8.1.5-0-installer.run
 chmod +x xampp-linux-x64-8.1.5-0-installer.run
-./xampp-linux-x64-8.1.5-0-installer.run
+sudo ./xampp-linux-x64-8.1.5-0-installer.run
 rm xampp-linux-x64-8.1.5-0-installer.run
 
 cd /opt/lampp/htdocs
