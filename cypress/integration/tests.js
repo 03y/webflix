@@ -1,6 +1,6 @@
 describe('Tests', function () {
     beforeEach(() => {
-        cy.visit('moir.org.uk');
+        cy.visit('moir.org.uk/webflix');
         cy.wait(500);
     });
 
