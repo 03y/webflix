@@ -30,3 +30,12 @@ Start-Process "http://localhost/phpmyadmin"
 *You will then need to create the `webflix` table and run `backup.sql` to create and populate tables (might get round to automating this at some point).* \
 Site can then be accessed at `http://localhost/webflix`.
 
+
+## Testing
+There are cypress test runs included, which ensure that the project is working. To run these follow the instructions below. You will need to have nodejs and npm installed.
+```
+npm install cypress
+npm install cypress-file-upload
+npx cypress run -r spec # for terminal
+npx cypress open # for gui
+```
