@@ -8,7 +8,7 @@
     echo '<!doctype html>';
     echo '<link rel="stylesheet" href="/../../css/style.css">';
     echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">';
-
+    echo '<link id="favicon" rel="shortcut icon" type="image/ico" href="https://moir.org.uk/webflix/favicon.ico" />';
     // Show different navigation links depending on if the user is logged in or not.
     if (!isset($_SESSION['user_id'])) {
         include(dirname(__FILE__) . "/../../includes/login.html");
